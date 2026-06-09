@@ -7,5 +7,6 @@
     - apm
     - uag
     - no_ws1
+    - ws1_single
   loop_control:
     loop_var: iapp_templ
