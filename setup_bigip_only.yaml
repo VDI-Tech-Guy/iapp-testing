@@ -2,11 +2,5 @@
 - hosts: bigip
   connection: local
   gather_facts: false
-  vars_files:
-    - /git/vars/UDF/bigip.yml
-    - /git/vars/horizon_iapp_ltm.yml
   roles:
-    - { role: roles/date-time}
-    - { role: roles/F5-Roles/license-bigip}
-    - { role: roles/F5-Roles/create-irule}
     - { role: roles/F5-Roles/deploy-horizon-iapp}
