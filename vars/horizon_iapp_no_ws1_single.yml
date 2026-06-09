@@ -1,6 +1,6 @@
 # All Deployment Types
 deployment_type: "apm"  # option can be APM, LTM or UAG
-horizon_deploy: "Access-Single"
+horizon_deploy: "single"
 
 # iApp Variables
 iapp_vip_address: "10.1.20.151"
