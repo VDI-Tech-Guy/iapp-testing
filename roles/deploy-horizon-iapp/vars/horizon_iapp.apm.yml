@@ -1,36 +1,36 @@
-#All Deployment Types
-deployment_type: "apm"  #option can be APM, LTM or UAG
+# All Deployment Types
+deployment_type: "apm"  # option can be APM, LTM or UAG
 horizon_deploy: "Horizon-APM"
 
-  #iApp Variables
+# iApp Variables
 iapp_vip_address: "10.1.20.105"
 iapp_template_name: "f5.vmware_view.v1.5.9"
 
-  #SSL Info
+# SSL Info
 iapp_ssl_cert: "/Common/Wildcard"
 iapp_ssl_key: "/Common/Wildcard"
-iapp_ssl_chain: "/Common/Wildcard" 
+iapp_ssl_chain: "/Common/Wildcard"
 
-  #Horizon Info
+# Horizon Info
 iapp_horizon_fqdn: "horizon-apm.f5demos.local"
 iapp_horizon_netbios: "f5demos"
 iapp_horizon_domainname: "f5demos.local"
-iapp_horizon_nat_addresss: "" #enter NAT address or leave empty for none
+iapp_horizon_nat_addresss: "" # enter NAT address or leave empty for none
 
 # LTM Deployment Type
 iapp_irule_origin:
   - "/Common/Horizon-Origin-Header"
-  
+
 # APM and LTM Deployment Types
 iapp_horizon_connection_servers:
-  - { ip: "10.1.10.5", port: "443" }  # to add Connection Servers just add additional line 
+  - { ip: "10.1.10.5", port: "443" }  # to add Connection Servers just add additional line
   - { ip: "10.1.10.6", port: "443" }
 
-#APM Deployment Type
+# APM Deployment Type
 iapp_active_directory_username: "{{ f5_user }}"
 iapp_active_directory_password: "{{ f5_pass }}"
 iapp_active_directory_password_encrypted: "no" # This is still being validated but requires the encrypted password from the BIG-IP
-iapp_active_directory_servers: 
+iapp_active_directory_servers:
   - { name: "active-directory.f5demos.local", ip: "10.1.10.8" } # to add Active Directory Servers just add additional lines
 
 # UAG Deployment Type

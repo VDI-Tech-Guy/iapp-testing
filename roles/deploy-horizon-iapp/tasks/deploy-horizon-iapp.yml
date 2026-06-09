@@ -1,18 +1,18 @@
 ---
-- name: Check for vars, for "{{ iapp_templ }}" Configuration
+- name: Check for vars, for configuration "{{ iapp_templ }}"
   ansible.builtin.stat:
     path: "/git/vars/horizon_iapp_{{ iapp_templ }}.yml"
   register: variables_bypass
 
-- name: Include vars for "{{ iapp_templ }}" Configuration
+- name: Include vars for configuration "{{ iapp_templ }}"
   ansible.builtin.include_vars:
     file: "/git/vars/horizon_iapp_{{ iapp_templ }}.yml"
   when: variables_bypass.stat.exists
 
-- name: Build JSON payload for "{{ iapp_templ }}" Configuration
+- name: Build JSON payload for configuration "{{ iapp_templ }}"
   ansible.builtin.template: src=f5.horizon.{{ iapp_templ | lower }}.j2 dest=/tmp/f5.horizon.json
 
-- name: Deploy F5 Horizon iApp for "{{ iapp_templ }}" Configuration
+- name: Deploy F5 Horizon iApp for configuration "{{ iapp_templ }}"
   f5networks.f5_modules.bigip_iapp_service: # Using Collections if not use - bigip_iapp_service:
     name: "VMware-Horizon-{{ iapp_templ }}"
     template: "{{ iapp_template_name }}"
