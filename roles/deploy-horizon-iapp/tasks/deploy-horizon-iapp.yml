@@ -1,12 +1,12 @@
 ---
 - name: Check for vars, for configuration "{{ iapp_templ }}"
   ansible.builtin.stat:
-    path: "/git/vars/horizon_iapp_{{ iapp_templ }}.yml"
+    path: "{{ playbook_dir }}/vars/horizon_iapp_{{ iapp_templ }}.yml"
   register: variables_bypass
 
 - name: Include vars for configuration "{{ iapp_templ }}"
   ansible.builtin.include_vars:
-    file: "/git/vars/horizon_iapp_{{ iapp_templ }}.yml"
+    file: "{{ playbook_dir }}/vars/horizon_iapp_{{ iapp_templ }}.yml"
   when: variables_bypass.stat.exists
 
 - name: Build JSON payload for configuration "{{ iapp_templ }}"
