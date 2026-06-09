@@ -15,7 +15,7 @@ iapp_ssl_chain: "/Common/Wildcard"
 iapp_horizon_fqdn: "horizon-apm.f5demos.local"
 iapp_horizon_netbios: "f5demos"
 iapp_horizon_domainname: "f5demos.local"
-iapp_horizon_nat_addresss: "" # enter NAT address or leave empty for none
+iapp_horizon_nat_address: "" # enter NAT address or leave empty for none
 
 # LTM Deployment Type
 iapp_irule_origin:
