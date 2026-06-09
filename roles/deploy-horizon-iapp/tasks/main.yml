@@ -1,0 +1,10 @@
+---
+
+ - name: Install IAPP Configs
+   include: deploy-horizon-iapp.yml
+   with_items:
+     - ltm
+     - apm
+     - uag
+   loop_control:
+     loop_var: iapp_templ
