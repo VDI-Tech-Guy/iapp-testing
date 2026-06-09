@@ -291,34 +291,24 @@
       "value": "yes"
     },
     {
-      "name": "ws1_access__ws1_fqdn",
+      "name": "ws1_access__ws1_audience",
       "encrypted": "no",
-      "value": "{{iapp_omnissa_access_url}}"
+      "value": "{{iapp_ws1_audience}}"
     },
     {
-      "name": "ws1_access__ws1_jwt_audience",
+      "name": "ws1_access__ws1_client_id",
       "encrypted": "no",
-      "value": "{{iapp_omnissa_audience}}"
+      "value": "{{iapp_ws1_client_id}}"
     },
     {
-      "name": "ws1_access__ws1_mgmt_token",
-      "encrypted": "no",
-      "value": "{{iapp_bigip_mgmt_token}}"
+      "name": "ws1_access__ws1_client_secret",
+      "encrypted": "{{iapp_ws1_client_secret_encrypted}}",
+      "value": "{{iapp_ws1_client_secret}}"
     },
     {
-      "name": "ws1_access__ws1_allow_self_signed_jwk",
+      "name": "ws1_access__ws1_discovery_url",
       "encrypted": "no",
-      "value": "{{iapp_omnissa_allow_self_signed | default('yes')}}"
-    },
-    {
-      "name": "ws1_access__ws1_trusted_ca",
-      "encrypted": "no",
-      "value": "{{iapp_omnissa_trusted_ca | default('/Common/ca-bundle.crt')}}"
-    },
-    {
-      "name": "ws1_access__ws1_discovery_frequency",
-      "encrypted": "no",
-      "value": "{{iapp_omnissa_discovery_freq | default('86400')}}"
+      "value": "{{iapp_ws1_discovery_url}}"
     },
     {
       "name": "ws1_access__ws1_existing_jwt_provider_list",
