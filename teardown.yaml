@@ -3,4 +3,5 @@
   connection: local
   gather_facts: false
   roles:
-    - { role: roles/deploy-horizon-iapp}
+    - { role: roles/f5-prep-lab}
+    - { role: roles/delete-irule}

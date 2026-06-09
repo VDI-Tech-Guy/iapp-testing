@@ -1,0 +1,13 @@
+---
+- name: Delete F5 iRule
+  f5networks.f5_modules.bigip_irule:
+    name: "{{ iapp_irule_origin[0].split('/')[2] }}"
+    module: ltm
+    content: "{{ lookup('template', 'horizon_irule.tcl') }}"
+    state: absent
+    provider:
+      server: "{{ ansible_host }}"
+      user: "{{ f5_user }}"
+      password: "{{ f5_pass }}"
+      validate_certs: false
+  delegate_to: localhost

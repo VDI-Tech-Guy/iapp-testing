@@ -1,0 +1,10 @@
+---
+
+- name: Remove IAPP Configs
+  ansible.builtin.include_tasks: remove-horizon-iapp.yml
+  with_items:
+    - ltm
+    - apm
+    - uag
+  loop_control:
+    loop_var: iapp_templ
