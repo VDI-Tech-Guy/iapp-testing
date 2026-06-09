@@ -1,0 +1,40 @@
+{
+  "lists": [],
+  "tables": [
+    {
+      "name": "providers__provider_table",
+      "columnNames": [
+        "provider_label",
+        "openid_cfg_url",
+        "audience",
+        "trusted_ca",
+        "discovery_freq"
+      ],
+      "rows": [
+        {% for provider in iapp_oauth_providers %}
+          {
+            "row": [
+              "{{provider.label}}",
+              "{{provider.openid_cfg_url}}",
+              "{{provider.audience}}",
+              "{{provider.trusted_ca | default('/Common/ca-bundle.crt')}}",
+              "{{provider.discovery_freq | default('86400')}}"
+            ]
+          }{{ ", " if not loop.last else "" }}
+        {% endfor %}
+      ]
+    }
+  ],
+  "variables": [
+    {
+      "name": "options__display_help",
+      "encrypted": "no",
+      "value": "hide"
+    },
+    {
+      "name": "config__mgmt_token",
+      "encrypted": "{{iapp_mgmt_token_encrypted}}",
+      "value": "{{iapp_mgmt_token}}"
+    }
+  ]
+}
