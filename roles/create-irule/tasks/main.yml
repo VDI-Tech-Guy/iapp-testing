@@ -6,7 +6,7 @@
     content: "{{ lookup('template', 'horizon_irule.tcl') }}"
     state: present
     provider:
-      server: "{{ f5_ip }}"
+      server: "{{ ansible_host }}"
       user: "{{ f5_user }}"
       password: "{{ f5_pass }}"
       validate_certs: false

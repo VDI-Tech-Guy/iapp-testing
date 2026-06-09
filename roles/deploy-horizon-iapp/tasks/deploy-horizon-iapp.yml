@@ -18,7 +18,7 @@
     template: "{{ iapp_template_name }}"
     parameters: "{{ lookup('template', '/tmp/f5.horizon.json') }}"
     provider:
-      server: "{{ f5_ip }}"
+      server: "{{ ansible_host }}"
       user: "{{ f5_user }}"
       password: "{{ f5_pass }}"
       validate_certs: false
