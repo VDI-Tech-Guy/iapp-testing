@@ -3,4 +3,5 @@
   connection: local
   gather_facts: false
   roles:
+    - { role: roles/create-irule}
     - { role: roles/deploy-horizon-iapp}
