@@ -1,0 +1,15 @@
+# iApp Variables
+iapp_template_name: "f5.oauth_jwt_provider.v1.0.0"
+iapp_mgmt_token: "{{ iapp_bigip_mgmt_token }}"
+iapp_mgmt_token_encrypted: "no"
+
+iapp_oauth_providers:
+  - label: "sitea"
+    openid_cfg_url: "https://f5devlab.us0.wss.workspaceone.com/SAAS/auth/.well-known/openid-configuration"
+    audience: "f5jwt1"
+    trusted_ca: "/Common/ca-bundle.crt"
+    discovery_freq: "86400"
+  - label: "siteb"
+    openid_cfg_url: "https://f5development.us0.wss.workspaceone.com/SAAS/auth/.well-known/openid-configuration"
+    audience: "f5jwt2"
+    # trusted_ca and discovery_freq will use defaults

@@ -3,10 +3,11 @@
 - name: Install IAPP Configs
   ansible.builtin.include_tasks: deploy-horizon-iapp.yml
   with_items:
-    - ltm
-    - apm
-    - uag
-    - no_ws1
-    - ws1_single
+    - f5.horizon.ltm
+    - f5.horizon.apm
+    - f5.horizon.uag
+    - f5.horizon.no_ws1
+    - f5.horizon.ws1_single
+    - iapp.oauth.jwt.provider
   loop_control:
     loop_var: iapp_templ
