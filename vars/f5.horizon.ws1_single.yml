@@ -37,3 +37,7 @@ iapp_active_directory_servers:
 iapp_horizon_uag_servers:
   - { ip: "10.1.10.50", port: "443" }  # to add UAG Servers Just add additional lines
   - { ip: "10.1.10.51", port: "443" }
+
+#WS1_Single
+iapp_omnissa_access_url: "f5devlab.us0.wss.workspaceone.com"
+iapp_omnissa_audience: "f5jwt"
