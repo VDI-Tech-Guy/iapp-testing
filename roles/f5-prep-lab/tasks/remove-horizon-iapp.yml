@@ -1,16 +1,16 @@
 ---
 - name: Check for vars, for configuration "{{ iapp_templ }}"
   ansible.builtin.stat:
-    path: "{{ playbook_dir }}/vars/horizon_iapp_{{ iapp_templ }}.yml"
+    path: "{{ playbook_dir }}/vars/{{ iapp_templ }}.yml"
   register: variables_bypass
 
 - name: Include vars for configuration "{{ iapp_templ }}"
   ansible.builtin.include_vars:
-    file: "{{ playbook_dir }}/vars/horizon_iapp_{{ iapp_templ }}.yml"
+    file: "{{ playbook_dir }}/vars/{{ iapp_templ }}.yml"
   when: variables_bypass.stat.exists
 
 - name: Build JSON payload for configuration "{{ iapp_templ }}"
-  ansible.builtin.template: src=f5.horizon.{{ iapp_templ | lower }}.j2 dest=/tmp/f5.horizon.json
+  ansible.builtin.template: src={{ iapp_templ | lower }}.j2 dest=/tmp/f5.horizon.json
 
 - name: Delete F5 Horizon iApp for configuration"{{ iapp_templ }}"
   f5networks.f5_modules.bigip_iapp_service: # Using Collections if not use - bigip_iapp_service:
