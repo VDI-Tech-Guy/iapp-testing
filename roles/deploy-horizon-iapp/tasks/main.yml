@@ -9,5 +9,6 @@
     - f5.horizon.no_ws1
     - f5.horizon.ws1_single
     - iapp.oauth.jwt.provider
+    - f5.horizon.ws1_multi
   loop_control:
     loop_var: iapp_templ
